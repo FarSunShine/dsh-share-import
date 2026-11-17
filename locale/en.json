@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Share link import",
-    "description": "Import a public DeepSeek chat share link as a real, resumable Session in the workspace you pick. The link is read through the site's public share endpoint, so no login or export ZIP is needed.",
+    "description": "Turn a public DeepSeek chat share link into a real, resumable Session. Click the ⤓ button to the right of New session, paste https://chat.deepseek.com/share/<id> (or just the id), pick the target workspace, and click Import. The link is read through the site's public share endpoint, so no login, token, or export ZIP is needed; nothing is sent to a model and no turn stays open. Questions, reasoning, web-search sources, and answers are stored as static history, so the first follow-up sends the whole imported conversation. Search results are trimmed (8 results per search, 120-character snippets) to keep a long session usable. Public, unexpired shares only; one import at a time. Turning the plugin off removes the button and the import route but keeps the sessions already imported.",
     "detail": "docs/DETAIL.md"
   }
 }
