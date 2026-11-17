@@ -5,6 +5,14 @@
   "type": "module",
   "license": "MIT",
   "keywords": ["deepseek", "harness", "dsh", "dsh-plugin", "share", "import", "chat"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FarSunShine/dsh-share-import.git"
+  },
+  "homepage": "https://github.com/FarSunShine/dsh-share-import#readme",
+  "bugs": {
+    "url": "https://github.com/FarSunShine/dsh-share-import/issues"
+  },
   "main": "index.js",
   "exports": {
     ".": "./index.js",
