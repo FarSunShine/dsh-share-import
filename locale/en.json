@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Share link import",
+    "description": "Import a public DeepSeek chat share link as a real, resumable Session in the workspace you pick. The link is read through the site's public share endpoint, so no login or export ZIP is needed.",
+    "detail": "docs/DETAIL.md"
+  }
+}

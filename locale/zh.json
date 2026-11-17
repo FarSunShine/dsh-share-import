@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "分享链接导入",
+    "description": "把公开的 DeepSeek 对话分享链接导入成所选工作区里一个可续聊的真实会话。链接通过官网公开分享接口读取，不需要登录，也不需要先导出 ZIP。",
+    "detail": "docs/DETAIL.md"
+  }
+}

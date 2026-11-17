@@ -1,0 +1,51 @@
+{
+  "name": "dsh-share-import",
+  "version": "0.1.0",
+  "description": "Import a public DeepSeek chat share link into DeepSeek Harness as a real, resumable Session.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": ["deepseek", "harness", "dsh", "dsh-plugin", "share", "import", "chat"],
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "convert.js",
+    "share.js",
+    "cordis.patch.yml",
+    "locale",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "@deepseek-ai/dsh-session": "^0.2.2-rc.3"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-session": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}
