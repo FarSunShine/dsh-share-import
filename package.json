@@ -1,6 +1,6 @@
 {
   "name": "dsh-share-link-import",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Import a public DeepSeek chat share link into DeepSeek Harness as a real, resumable Session.",
   "type": "module",
   "license": "MIT",

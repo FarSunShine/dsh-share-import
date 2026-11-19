@@ -48,6 +48,50 @@ window.__ModuleLoader__.load({
       'error.no-workspace': 'No workspace is available yet. Create one in the sidebar first.',
     }
 
+    /**
+     * Trigger styling: a quiet icon button sized like the neighbouring row
+     * controls, so it sits in the New-session row instead of reading as text.
+     */
+    const TRIGGER_CSS = `
+.dsh-sli-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: .72;
+  transition: background-color .15s ease, opacity .15s ease;
+}
+.dsh-sli-trigger:hover { background: rgba(128,128,128,.16); opacity: 1; }
+.dsh-sli-trigger:active { background: rgba(128,128,128,.26); }
+.dsh-sli-trigger:focus-visible { outline: 2px solid #3A82F7; outline-offset: 2px; }
+.dsh-sli-trigger.is-narrow { width: 34px; height: 34px; }
+`
+
+    /**
+     * The link glyph: two chain links, drawn with the current text colour so it
+     * follows the theme.
+     * @param props - `size` in pixels.
+     */
+    function LinkIcon(props) {
+      const size = props?.size ?? 16
+      return h('svg', {
+        width: size, height: size, viewBox: '0 0 24 24', fill: 'none',
+        stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round',
+        'aria-hidden': true, focusable: 'false',
+      },
+      h('path', { d: 'M10.4 13.6a4.3 4.3 0 0 0 6.1 0l2.3-2.3a4.3 4.3 0 0 0-6.1-6.1l-1.1 1.1' }),
+      h('path', { d: 'M13.6 10.4a4.3 4.3 0 0 0-6.1 0l-2.3 2.3a4.3 4.3 0 0 0 6.1 6.1l1.1-1.1' }))
+    }
+
     /** Shared control styling; colours come from the page so both themes work. */
     const inputStyle = {
       width: '100%',
@@ -190,16 +234,11 @@ window.__ModuleLoader__.load({
         children,
         h('button', {
           type: 'button',
+          className: wide ? 'dsh-sli-trigger' : 'dsh-sli-trigger is-narrow',
           title: t('action.label'),
           'aria-label': t('action.label'),
           onClick: () => setOpen(true),
-          style: {
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4,
-            height: wide ? 28 : 34, minWidth: wide ? 0 : 34, padding: wide ? '0 8px' : 0,
-            marginLeft: 4, borderRadius: 8, border: 'none', background: 'transparent',
-            color: 'inherit', cursor: 'pointer', font: 'inherit', fontSize: 12, opacity: .8,
-          },
-        }, wide ? `⤓ ${t('action.label')}` : '⤓'),
+        }, h(LinkIcon, { size: wide ? 16 : 18 })),
         open ? h(ImportDialog, { ...props, onClose: () => setOpen(false) }) : null)
     }
 
@@ -207,6 +246,16 @@ window.__ModuleLoader__.load({
       inject: ['slots', 'sessions', 'locale'],
       apply(ctx) {
         ctx.effect(() => ctx.locale.register(NS, { zh, en }), 'share-import: dictionaries')
+        // One stylesheet for the trigger; the id guard keeps HMR reloads from stacking copies.
+        ctx.effect(() => {
+          const existing = document.getElementById('dsh-share-link-import-style')
+          if (existing !== null) return () => {}
+          const style = document.createElement('style')
+          style.id = 'dsh-share-link-import-style'
+          style.textContent = TRIGGER_CSS
+          document.head.appendChild(style)
+          return () => { style.remove() }
+        }, 'share-import: trigger styles')
         const injected = {
           runImport: async (url, workspaceId, signal) => {
             try {
