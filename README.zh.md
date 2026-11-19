@@ -10,19 +10,27 @@ DSH 内置的实验性「DeepSeek 会话导入」只认 `deepseek_data-*.zip` �
 
 ## 安装
 
-发布到 npm 之后：
+通过 [GitHub Releases](https://github.com/FarSunShine/dsh-share-link-import/releases) 分发，不需要 npm。
 
-```bash
-dsh plugin --profile desktop add dsh-share-link-import
-```
+### 从发布包安装
 
-从本地目录安装（该命令会把参数转给 profile 目录里的 pnpm）：
+1. 在最新 Release 里下载 `dsh-share-link-import-0.1.1.zip`。
+2. 解压到一个不会删的固定位置。DSH 是按链接记住这个目录的，之后移动或删除会导致插件失效。
+3. 打开 DeepSeek Harness 的 **插件** → **添加插件**，选中解压出来的 `dsh-share-link-import` 文件夹。
+
+### 从本地目录安装
 
 ```bash
 dsh plugin --profile desktop add /path/to/dsh-share-link-import
 ```
 
-在应用里：**插件** → **添加插件**，选择目录或 npm 包名。
+### 从 Git 仓库安装
+
+```bash
+dsh plugin --profile desktop add "git+https://github.com/FarSunShine/dsh-share-link-import.git#<40位commit>"
+```
+
+要固定到完整的 commit；分支名或标签不会被当作可更新版本。
 
 ## 使用
 

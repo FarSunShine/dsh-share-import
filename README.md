@@ -10,19 +10,27 @@ DSH's built-in importer (the experimental *DeepSeek chat import* bundle) only re
 
 ## Install
 
-Once published to npm:
+Distributed through [GitHub Releases](https://github.com/FarSunShine/dsh-share-link-import/releases); npm is not required.
 
-```bash
-dsh plugin --profile desktop add dsh-share-link-import
-```
+### From a release archive
 
-From a local checkout (the command forwards to pnpm inside the profile):
+1. Download `dsh-share-link-import-0.1.1.zip` from the latest release.
+2. Extract it to a permanent location. DeepSeek Harness links to that directory, so moving or deleting it later breaks the plugin.
+3. Open **Plugins** → **Add plugin** and select the extracted `dsh-share-link-import` folder.
+
+### From a local checkout
 
 ```bash
 dsh plugin --profile desktop add /path/to/dsh-share-link-import
 ```
 
-In the app: **Plugins** → **Add plugin**, then pick the directory or the npm package.
+### From the Git repository
+
+```bash
+dsh plugin --profile desktop add "git+https://github.com/FarSunShine/dsh-share-link-import.git#<40-character-commit>"
+```
+
+Pin a full commit; a branch or tag is not treated as updatable.
 
 ## Usage
 
