@@ -1,5 +1,5 @@
 {
-  "name": "dsh-share-import",
+  "name": "dsh-share-link-import",
   "version": "0.1.0",
   "description": "Import a public DeepSeek chat share link into DeepSeek Harness as a real, resumable Session.",
   "type": "module",
@@ -7,11 +7,11 @@
   "keywords": ["deepseek", "harness", "dsh", "dsh-plugin", "share", "import", "chat"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FarSunShine/dsh-share-import.git"
+    "url": "git+https://github.com/FarSunShine/dsh-share-link-import.git"
   },
-  "homepage": "https://github.com/FarSunShine/dsh-share-import#readme",
+  "homepage": "https://github.com/FarSunShine/dsh-share-link-import#readme",
   "bugs": {
-    "url": "https://github.com/FarSunShine/dsh-share-import/issues"
+    "url": "https://github.com/FarSunShine/dsh-share-link-import/issues"
   },
   "main": "index.js",
   "exports": {

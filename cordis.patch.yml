@@ -1,5 +1,5 @@
 # Share-link import: a sidebar action after New session that turns a public
 # chat.deepseek.com share link into a stored Session in the chosen Workspace.
 - insert:
-    - id: share-import
-      name: 'dsh-share-import'
+    - id: share-link-import
+      name: 'dsh-share-link-import'

@@ -6,7 +6,7 @@
  */
 
 window.__ModuleLoader__.load({
-  id: 'dsh-share-import',
+  id: 'dsh-share-link-import',
   factory(require) {
     const React = require('react')
     const h = React.createElement

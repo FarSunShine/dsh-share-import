@@ -4,7 +4,7 @@
  * Session in the Workspace named by the request. Nothing is sent to a model and
  * no turn stays open, so the imported Session is finished history the user can
  * read and continue.
- * @module dsh-share-import
+ * @module dsh-share-link-import
  */
 
 import { randomUUID } from 'node:crypto'

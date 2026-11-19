@@ -1,4 +1,4 @@
-# dsh-share-import
+# dsh-share-link-import
 
 把一条公开的 DeepSeek 对话分享链接导入 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH），变成一个真实、可续聊的会话。
 
@@ -13,13 +13,13 @@ DSH 内置的实验性「DeepSeek 会话导入」只认 `deepseek_data-*.zip` �
 发布到 npm 之后：
 
 ```bash
-dsh plugin --profile desktop add dsh-share-import
+dsh plugin --profile desktop add dsh-share-link-import
 ```
 
 从本地目录安装（该命令会把参数转给 profile 目录里的 pnpm）：
 
 ```bash
-dsh plugin --profile desktop add /path/to/dsh-share-import
+dsh plugin --profile desktop add /path/to/dsh-share-link-import
 ```
 
 在应用里：**插件** → **添加插件**，选择目录或 npm 包名。
@@ -46,6 +46,10 @@ dsh plugin --profile desktop add /path/to/dsh-share-import
 - 搜索结果会裁剪，避免上百轮的会话撑爆上下文。
 - 同一时间只允许一个导入，并发会返回 `busy`。
 - 只支持 `chat.deepseek.com`。
+
+## 相关项目
+
+[Sillykjs/dsh-share-import](https://github.com/Sillykjs/dsh-share-import) 已经做过同一件事，而且有些地方更完整：它还支持**豆包**的分享链接、会拦截同一条分享的重复导入、导入前有预览步骤。这个包是一份独立的、范围更窄的实现：只支持 DeepSeek，发在 npm 上免构建安装，入口是侧栏按钮而不是导航面板，并会裁剪搜索结果以免超长会话撑爆上下文。想要更全的功能，用那个。
 
 ## 许可证
 

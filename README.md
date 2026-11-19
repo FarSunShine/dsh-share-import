@@ -1,4 +1,4 @@
-# dsh-share-import
+# dsh-share-link-import
 
 Import a public DeepSeek chat share link into [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (DSH) as a real, resumable Session.
 
@@ -13,13 +13,13 @@ DSH's built-in importer (the experimental *DeepSeek chat import* bundle) only re
 Once published to npm:
 
 ```bash
-dsh plugin --profile desktop add dsh-share-import
+dsh plugin --profile desktop add dsh-share-link-import
 ```
 
 From a local checkout (the command forwards to pnpm inside the profile):
 
 ```bash
-dsh plugin --profile desktop add /path/to/dsh-share-import
+dsh plugin --profile desktop add /path/to/dsh-share-link-import
 ```
 
 In the app: **Plugins** → **Add plugin**, then pick the directory or the npm package.
@@ -46,6 +46,10 @@ In the app: **Plugins** → **Add plugin**, then pick the directory or the npm p
 - Search results are trimmed so a 100-turn session does not blow the context window.
 - One import at a time; a concurrent request answers `busy`.
 - `chat.deepseek.com` only.
+
+## Related work
+
+[Sillykjs/dsh-share-import](https://github.com/Sillykjs/dsh-share-import) already covers this idea and is more complete in places: it also imports **Doubao** threads, blocks a duplicate import of the same share, and offers a preview step before writing. This package is a narrower, independently written implementation: DeepSeek only, a prebuilt npm package, a sidebar button instead of a nav panel, and trimmed search results so a very long history stays usable. If you want the broader feature set, use that one.
 
 ## License
 

@@ -35,5 +35,5 @@ for x, y in ((54, 122), (126, 122)):
     )
 
 image = image.resize((SIZE, SIZE), Image.LANCZOS)
-image.save(r"C:\Users\SUNSHINE\Documents\deepseek-harness\default-workspace\dsh-share-import\assets\icon-180.png")
+image.save(r"C:\Users\SUNSHINE\Documents\deepseek-harness\default-workspace\dsh-share-link-import\assets\icon-180.png")
 print("written", image.size)
